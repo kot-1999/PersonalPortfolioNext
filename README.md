@@ -10,7 +10,7 @@ the site rarely means touching a component.
 
 | Route | What it shows |
 |-------|---------------|
-| `/` | Hero with terminal panel, about, featured projects, experience & education, core stack, library preview |
+| `/` | Hero with interactive terminal, about, featured projects, experience & education, core stack, library preview |
 | `/projects/` | All projects, filterable by category (Personal / Commercial / Open Source / Hackathon) |
 | `/projects/<slug>/` | Project detail: facts, screenshot gallery, video, responsibilities, impact, tech stack |
 | `/skills/` | Every technology, grouped by category, filterable by level, category and name |
@@ -19,6 +19,23 @@ the site rarely means touching a component.
 
 Tech badges, skill tiles and book covers all open the same small **info popover** on click (see
 [Components](#components)).
+
+### The terminal
+
+The home page hero has a small bash-style terminal (`components/Terminal.tsx`) that visitors can type into:
+
+| Command | Effect |
+|---------|--------|
+| `help` | List commands |
+| `ls`, `ls projects`, `ls skills` | List "files", every project, or a skills summary |
+| `cd <dir>` | Navigate: `projects`, `skills`, `library`, `contact`, `~`, or a project like `cd projects/notino` |
+| `cat stack.txt`, `cat about.txt` | Print a "file" |
+| `./contact.sh` | Open the contact page |
+| `whoami`, `uname`, `pwd`, `date`, `echo`, `history`, `clear` | The usual suspects |
+| Tab, ↑ / ↓, Ctrl+L, Ctrl+C | Completion, history, clear, cancel |
+
+Unknown input answers `bash: <cmd>: command not found`. A few easter eggs are hidden in the `run()` switch;
+add your own there.
 
 ## Run locally
 
@@ -150,6 +167,7 @@ shadows, square corners and faint static CRT scanlines. The site is intentionall
 | `LibraryGrid`, `BookCover` | Book shelves and clickable covers |
 | `ProjectsBrowser`, `ProjectCard` | Project grid with category filter |
 | `Gallery` | Screenshot carousel with thumbnails, arrow keys and swipe |
+| `Terminal` | Home page interactive bash prompt; commands live in its `run()` function |
 | `FilterChips` | Toggle-chip group with optional counts |
 | `ContactForm` | Formspree form with sending / sent / error states |
 | `SiteHeader`, `SiteFooter`, `PageHeader`, `SectionHeading` | Layout pieces |

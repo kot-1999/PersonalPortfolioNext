@@ -3,7 +3,7 @@ import type { Link } from './types'
 export const profile = {
     name: 'Oleksandr (Alex) Kashytskyi',
     shortName: 'Alex K.',
-    logo: '/:AlexK',
+    logo: ':/ALEX',
     role: 'Backend Developer / Database Architect',
     location: 'London, UK',
     email: 'sashakashytskyy@gmail.com',
