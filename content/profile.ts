@@ -58,7 +58,7 @@ export const profile = {
         {
             degree: 'MSc Web Development',
             school: 'University of Roehampton, London',
-            period: '2025 – Present'
+            period: '2025 – 2026'
         },
         {
             degree: 'BSc Computer Science',

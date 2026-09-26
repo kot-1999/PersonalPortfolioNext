@@ -85,7 +85,7 @@ export const tech = {
     },
     Docker: {
         name: 'Docker',
-        categories: ['Backend'],
+        categories: ['DevOps', 'Backend'],
         proficiency: 'Expert',
         description: 'Containerization platform ensuring consistent runtime environments.'
     },
@@ -121,7 +121,7 @@ export const tech = {
     },
     i18next: {
         name: 'i18next',
-        categories: ['Frontend', 'Backend'],
+        categories: ['Backend', 'Frontend'],
         proficiency: 'Expert',
         description: 'Internationalization framework for managing translations and multi-language support.'
     },
@@ -139,9 +139,38 @@ export const tech = {
     },
     'Shell-Script': {
         name: 'Shell',
-        categories: ['Backend'],
+        categories: ['DevOps'],
         proficiency: 'Basic',
         description: 'Used for automating deployments, server tasks, and development workflows.'
+    },
+
+    Nodemailer: {
+        name: 'Nodemailer',
+        icon: null,
+        categories: ['Backend'],
+        proficiency: 'Expert',
+        description: 'Transactional emails — bookings, invitations, password recovery — rendered from EJS templates.'
+    },
+    NestJS: {
+        name: 'NestJS',
+        icon: '/icons/NestJS.svg',
+        categories: ['Backend'],
+        proficiency: 'Basic',
+        description: 'Opinionated Node.js framework with modules and dependency injection, explored in a starter template.'
+    },
+    SocketIO: {
+        name: 'Socket.IO',
+        icon: '/icons/SocketIO.svg',
+        categories: ['Backend'],
+        proficiency: 'Basic',
+        description: 'WebSocket library for real-time, bidirectional events between server and clients.'
+    },
+    Zod: {
+        name: 'Zod',
+        icon: '/icons/Zod.svg',
+        categories: ['Backend', 'Frontend'],
+        proficiency: 'Basic',
+        description: 'TypeScript-first schema validation with static type inference.'
     },
 
     // Storage
@@ -168,6 +197,14 @@ export const tech = {
         categories: ['Storage'],
         proficiency: 'Expert',
         description: 'In-memory data store used for caching, queues, sessions, and real-time data.'
+    },
+
+    Mongoose: {
+        name: 'Mongoose',
+        icon: '/icons/Mongoose.svg',
+        categories: ['Storage'],
+        proficiency: 'Basic',
+        description: 'MongoDB object modelling with schemas, validation and middleware hooks.'
     },
 
     // Frontend
@@ -197,9 +234,46 @@ export const tech = {
     },
     'React-Native': {
         name: 'React Native',
+        icon: '/icons/React.svg',
         categories: ['Frontend'],
         proficiency: 'Advanced',
         description: 'Framework for building cross-platform mobile applications with React concepts.'
+    },
+
+    NextJS: {
+        name: 'Next.js',
+        icon: '/icons/NextJS.svg',
+        categories: ['Frontend'],
+        proficiency: 'Advanced',
+        description: 'React framework with the App Router — used for the Flowers Shop storefront, BarThunder and this site.'
+    },
+    React: {
+        name: 'React',
+        icon: '/icons/React.svg',
+        categories: ['Frontend'],
+        proficiency: 'Advanced',
+        description: 'Component-based UI library; server and client components in Next.js apps.'
+    },
+    'Ant-Design': {
+        name: 'Ant Design',
+        icon: '/icons/Ant-Design.svg',
+        categories: ['Frontend'],
+        proficiency: 'Advanced',
+        description: 'Enterprise React component library used for admin panels and data-heavy screens.'
+    },
+    Tailwind: {
+        name: 'Tailwind CSS',
+        icon: '/icons/Tailwind.svg',
+        categories: ['Frontend'],
+        proficiency: 'Advanced',
+        description: 'Utility-first CSS framework for fast, consistent styling with design tokens.'
+    },
+    Webpack: {
+        name: 'Webpack',
+        icon: '/icons/Webpack.svg',
+        categories: ['Frontend'],
+        proficiency: 'Basic',
+        description: 'Module bundler used to package the Swagger UI in express-joi-to-swagger.'
     },
 
     // Testing
@@ -226,6 +300,28 @@ export const tech = {
         categories: ['Testing'],
         proficiency: 'Advanced',
         description: 'Load and performance testing tool for backend systems.'
+    },
+
+    Supertest: {
+        name: 'Supertest',
+        icon: null,
+        categories: ['Testing'],
+        proficiency: 'Expert',
+        description: 'HTTP assertions for end-to-end testing of Express endpoints together with Mocha and Chai.'
+    },
+    Istanbul: {
+        name: 'Istanbul (nyc)',
+        icon: null,
+        categories: ['Testing'],
+        proficiency: 'Advanced',
+        description: 'Code coverage tooling — used to track Notino coverage growing from 79% to 93%.'
+    },
+    Jest: {
+        name: 'Jest',
+        icon: '/icons/Jest.svg',
+        categories: ['Testing'],
+        proficiency: 'Basic',
+        description: 'All-in-one JavaScript test runner with mocking and snapshot testing.'
     },
 
     // Security
@@ -306,7 +402,40 @@ export const tech = {
         description: 'AWS monitoring service for logs, metrics, and alarms on cloud resources.'
     },
 
+    LocalStack: {
+        name: 'LocalStack',
+        icon: null,
+        categories: ['AWS', 'DevOps'],
+        proficiency: 'Basic',
+        description: 'Local AWS cloud emulator for developing against S3 without touching real infrastructure.'
+    },
+
+    // DevOps
+    'GitHub-Actions': {
+        name: 'GitHub Actions',
+        icon: '/icons/GitHub-Actions.svg',
+        categories: ['DevOps'],
+        proficiency: 'Advanced',
+        description: 'CI/CD workflows for linting, tests and deployments — including this site’s GitHub Pages deploy.'
+    },
+
+    // AI
+    Ollama: {
+        name: 'Ollama',
+        icon: '/icons/Ollama.svg',
+        categories: ['AI'],
+        proficiency: 'Basic',
+        description: 'Runs open LLMs locally; powers the AI shopping assistant in Flowers Shop.'
+    },
+
     // Project management
+    Git: {
+        name: 'Git',
+        icon: '/icons/Git.svg',
+        categories: ['Project Management', 'DevOps'],
+        proficiency: 'Expert',
+        description: 'Version control: branching strategies, rebasing, code review and clean history.'
+    },
     GitHub: {
         name: 'GitHub',
         categories: ['Project Management'],
@@ -315,9 +444,9 @@ export const tech = {
     },
     Bitbucket: {
         name: 'Bitbucket',
-        categories: ['Project Management'],
+        categories: ['Project Management', 'DevOps'],
         proficiency: 'Advanced',
-        description: 'Git-based repository hosting with CI/CD integrations.'
+        description: 'Git hosting with Bitbucket Pipelines CI used to type-check, test and deploy production services.'
     },
     Jira: {
         name: 'Jira',
@@ -333,6 +462,20 @@ export const tech = {
     },
 
     // Others
+    Prettier: {
+        name: 'Prettier',
+        icon: '/icons/Prettier.svg',
+        categories: ['Others'],
+        proficiency: 'Expert',
+        description: 'Opinionated code formatter keeping style consistent across teams.'
+    },
+    Husky: {
+        name: 'Husky + commitlint',
+        icon: null,
+        categories: ['Others'],
+        proficiency: 'Advanced',
+        description: 'Git hooks that lint code and enforce Jira-linked commit messages before they land.'
+    },
     Eslint: {
         name: 'ESLint',
         categories: ['Others'],
@@ -341,13 +484,13 @@ export const tech = {
     },
     Linux: {
         name: 'Linux',
-        categories: ['Others'],
+        categories: ['DevOps'],
         proficiency: 'Advanced',
         description: 'Operating system used for servers, deployments, and backend infrastructure.'
     },
     OpenAI: {
         name: 'OpenAI',
-        categories: ['Others'],
+        categories: ['AI'],
         proficiency: 'Advanced',
         description: 'API platform enabling AI-powered features such as text generation and automation.'
     },
@@ -359,13 +502,7 @@ export const tech = {
     },
 
     // Project-only badges (not listed on the Skills page)
-    NextJS: { name: 'Next.js', icon: null },
-    React: { name: 'React', icon: null },
-    'Ant-Design': { name: 'Ant Design', icon: null },
-    LocalStack: { name: 'LocalStack', icon: null },
-    Shippo: { name: 'Shippo', icon: null },
-    Ollama: { name: 'Ollama', icon: null },
-    'GitHub-Actions': { name: 'GitHub Actions', icon: null }
+    Shippo: { name: 'Shippo', icon: null }
 } as const satisfies Record<string, Tech>
 
 export type TechKey = keyof typeof tech
