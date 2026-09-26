@@ -34,7 +34,7 @@ export default function Gallery({ images }: { images: ProjectImage[] }) {
             }}
         >
             <div
-                className='relative aspect-[16/10] bg-surface-2'
+                className='relative aspect-[16/10] bg-[#0d0b08]'
                 onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
                 onTouchEnd={(e) => {
                     if (touchX.current === null) return
@@ -54,7 +54,7 @@ export default function Gallery({ images }: { images: ProjectImage[] }) {
                 )}
             </div>
 
-            <figcaption className='flex items-center justify-between gap-4 border-t border-border px-4 py-3 text-sm'>
+            <figcaption className='flex items-center justify-between gap-4 border-t-2 border-border px-4 py-3 text-sm'>
                 <span>{current.caption}</span>
                 <span className='font-mono text-xs text-muted'>
                     {index + 1} / {count}
@@ -62,7 +62,7 @@ export default function Gallery({ images }: { images: ProjectImage[] }) {
             </figcaption>
 
             {count > 1 && (
-                <div ref={thumbs} className='flex gap-2 overflow-x-auto border-t border-border p-3'>
+                <div ref={thumbs} className='flex gap-2 overflow-x-auto border-t-2 border-border p-3'>
                     {images.map((img, i) => (
                         <button
                             key={img.src}
@@ -70,7 +70,7 @@ export default function Gallery({ images }: { images: ProjectImage[] }) {
                             onClick={() => setIndex(i)}
                             aria-label={`Show ${img.caption}`}
                             aria-current={i === index}
-                            className='h-14 w-24 shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition hover:opacity-100 aria-[current=true]:border-accent aria-[current=true]:opacity-100'
+                            className='h-14 w-24 shrink-0 overflow-hidden rounded-md border-2 border-transparent opacity-60 transition hover:opacity-100 aria-[current=true]:border-accent aria-[current=true]:opacity-100'
                         >
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src={asset(img.src)} alt='' loading='lazy' className='h-full w-full object-cover object-top' />
@@ -88,7 +88,7 @@ function GalleryButton({ side, label, onClick }: { side: 'left' | 'right', label
             type='button'
             aria-label={label}
             onClick={onClick}
-            className={`absolute top-1/2 -translate-y-1/2 ${side === 'left' ? 'left-3' : 'right-3'} grid h-10 w-10 place-items-center rounded-full border border-border bg-surface/90 text-text shadow backdrop-blur transition hover:border-accent hover:text-accent`}
+            className={`absolute top-1/2 -translate-y-1/2 ${side === 'left' ? 'left-3' : 'right-3'} grid h-10 w-10 place-items-center rounded-md border-2 border-border bg-surface/90 text-text shadow-[3px_3px_0_#000] backdrop-blur transition hover:border-accent hover:text-accent`}
         >
             <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round'>
                 <path d={side === 'left' ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6'} />

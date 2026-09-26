@@ -10,9 +10,9 @@ export default function ProjectCard({ project }: { project: Project }) {
     return (
         <Link
             href={`/projects/${project.slug}/`}
-            className='card group flex h-full flex-col overflow-hidden transition-colors hover:border-accent'
+            className='card card-hover group flex h-full flex-col overflow-hidden'
         >
-            <div className='relative aspect-[16/10] overflow-hidden border-b border-border bg-surface-2'>
+            <div className='relative aspect-[16/10] overflow-hidden border-b-2 border-border bg-surface-2'>
                 {cover ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -24,21 +24,21 @@ export default function ProjectCard({ project }: { project: Project }) {
                 ) : project.icon ? (
                     <div className='grid h-full place-items-center'>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={asset(project.icon)} alt='' className='h-20 w-20 rounded-2xl object-contain shadow-sm' loading='lazy' />
+                        <img src={asset(project.icon)} alt='' className='h-20 w-20 rounded-lg bg-plate object-contain p-1 shadow-[4px_4px_0_#000]' loading='lazy' />
                     </div>
                 ) : (
-                    <div className='grid h-full place-items-center font-mono text-4xl text-accent'>{project.name.slice(0, 2)}</div>
+                    <div className='pixel grid h-full place-items-center text-6xl text-accent'>{project.name.slice(0, 2)}</div>
                 )}
             </div>
 
             <div className='flex flex-1 flex-col p-5'>
-                <p className='mb-2 font-mono text-xs uppercase tracking-wider text-muted'>
+                <p className='mb-2 font-mono text-[11px] uppercase tracking-wider text-teal'>
                     {project.category}
                     {project.client && ` · ${project.client}`}
                 </p>
-                <h3 className='text-lg font-semibold group-hover:text-accent'>{project.name}</h3>
+                <h3 className='pixel text-3xl group-hover:text-accent'>{project.name}</h3>
                 <p className='mt-2 flex-1 text-sm text-muted'>{project.tagline}</p>
-                <p className='mt-4 truncate font-mono text-xs text-muted'>
+                <p className='mt-4 truncate border-t border-dashed border-border pt-3 font-mono text-xs text-muted'>
                     {project.tech.slice(0, 3).map((t) => tech[t].name).join(' · ')}
                     {project.tech.length > 3 && ` +${project.tech.length - 3}`}
                 </p>
