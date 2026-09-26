@@ -17,8 +17,10 @@ export const SKILL_CATEGORIES = [
     'Storage',
     'Security',
     'AWS',
+    'DevOps',
     'Testing',
     'Monitoring',
+    'AI',
     'Project Management',
     'Others'
 ] as const

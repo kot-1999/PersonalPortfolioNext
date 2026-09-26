@@ -2,47 +2,42 @@
 
 import { useState } from 'react'
 
+import BookCover from '@/components/BookCover'
 import FilterChips from '@/components/FilterChips'
 import type { Book, BookCategory } from '@/content/types'
-import { asset } from '@/lib/asset'
 
 export default function LibraryGrid({ books }: { books: Book[] }) {
-    const categories = ['All', ...new Set(books.map((b) => b.category))] as ('All' | BookCategory)[]
+    const shelves = [...new Set(books.map((b) => b.category))]
+    const options = ['All', ...shelves] as ('All' | BookCategory)[]
+    const counts = Object.fromEntries(options.map((o) => [o, books.filter((b) => o === 'All' || b.category === o).length]))
     const [category, setCategory] = useState<'All' | BookCategory>('All')
-    const visible = books.filter((b) => category === 'All' || b.category === category)
 
     return (
         <div>
-            <FilterChips label='Filter books by category' options={categories} value={category} onChange={setCategory} />
+            <FilterChips label='Filter books by category' options={options} value={category} onChange={setCategory} counts={counts} />
+            <p className='mt-4 font-mono text-xs text-muted'>Click a cover for a short summary and key takeaways.</p>
 
-            <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-                {visible.map((book) => (
-                    <li key={book.title} className='card flex gap-4 p-4'>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                            src={asset(book.cover)}
-                            alt={`${book.title} cover`}
-                            loading='lazy'
-                            className='h-36 w-24 shrink-0 rounded-md border border-border object-cover'
-                        />
-                        <div className='min-w-0'>
-                            <h3 className='font-semibold leading-snug'>{book.title}</h3>
-                            <p className='mt-1 text-sm text-muted'>{book.author}</p>
-                            <p className='mt-2 font-mono text-[11px] uppercase tracking-wider text-accent'>{book.category}</p>
-                            <details className='group mt-2 text-sm'>
-                                <summary className='cursor-pointer list-none text-muted hover:text-text [&::-webkit-details-marker]:hidden'>
-                                    <span className='group-open:hidden'>Show details +</span>
-                                    <span className='hidden group-open:inline'>Hide details −</span>
-                                </summary>
-                                <p className='mt-2'>{book.summary}</p>
-                                <p className='mt-2 text-muted'>
-                                    <strong className='text-text'>Takeaways:</strong> {book.takeaways}
-                                </p>
-                            </details>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            <div className='mt-8 space-y-12'>
+                {shelves
+                    .filter((shelf) => category === 'All' || shelf === category)
+                    .map((shelf) => (
+                        <section key={shelf}>
+                            <h2 className='pixel mb-5 text-3xl'>
+                                <span className='text-teal'>#</span> {shelf}
+                            </h2>
+                            {/* Every cell carries a slice of plank, so each row reads as one continuous shelf */}
+                            <ul className='grid grid-cols-3 gap-y-10 sm:grid-cols-4 md:grid-cols-6'>
+                                {books
+                                    .filter((b) => b.category === shelf)
+                                    .map((book) => (
+                                        <li key={book.title} className='flex flex-col justify-end border-b-[10px] border-[#3a2e22] px-2 pb-3 shadow-[0_6px_0_#000] sm:px-3'>
+                                            <BookCover book={book} />
+                                        </li>
+                                    ))}
+                            </ul>
+                        </section>
+                    ))}
+            </div>
         </div>
     )
 }

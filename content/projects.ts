@@ -39,7 +39,8 @@ export const projects: Project[] = [
         tech: [
             'TypeScript', 'NodeJS', 'Express-js', 'PostgreSQL', 'Prisma', 'Redis', 'Docker', 'Stripe',
             'Shippo', 'S3', 'LocalStack', 'Passport', 'JWT', 'OAuth', 'JOI', 'Swagger', 'i18next',
-            'Winston', 'Sentry', 'Mocha', 'Chai', 'Ollama', 'NextJS', 'React', 'Ant-Design'
+            'Winston', 'Sentry', 'Mocha', 'Chai', 'Supertest', 'Istanbul', 'Nodemailer', 'Helmet', 'Ollama',
+            'GitHub-Actions', 'NextJS', 'React', 'Ant-Design', 'Tailwind'
         ],
         links: [
             { label: 'Backend', href: 'https://github.com/kot-1999/flowers_shop_be' },
@@ -88,7 +89,8 @@ export const projects: Project[] = [
         ],
         tech: [
             'TypeScript', 'NodeJS', 'Express-js', 'MySQL', 'Prisma', 'Redis', 'Docker', 'Passport', 'JWT',
-            'OAuth', 'Helmet', 'JOI', 'Swagger', 'S3', 'Winston', 'Sentry', 'Mocha', 'Chai', 'GitHub-Actions'
+            'OAuth', 'Helmet', 'JOI', 'Swagger', 'S3', 'Nodemailer', 'Winston', 'Sentry', 'Mocha', 'Chai', 'Supertest',
+            'Husky', 'GitHub-Actions'
         ],
         links: [
             { label: 'Backend', href: 'https://github.com/kot-1999/RestB_BE' },
@@ -134,8 +136,9 @@ export const projects: Project[] = [
             'Updated email notifications to pass 99% of spam checkers'
         ],
         tech: [
-            'TypeScript', 'NodeJS', 'Express-js', 'PostgreSQL', 'Sequelize', 'Redis', 'RabbitMQ', 'Docker',
-            'EC2', 'RDS', 'SES', 'Swagger', 'JOI', 'Sentry'
+            'TypeScript', 'NodeJS', 'Express-js', 'PostgreSQL', 'Sequelize', 'Redis', 'BullMQ', 'RabbitMQ', 'Docker',
+            'EC2', 'RDS', 'S3', 'SES', 'CloudWatch', 'Swagger', 'JOI', 'Passport', 'JWT', 'i18next', 'Nodemailer',
+            'Winston', 'Sentry', 'Mocha', 'Chai', 'Supertest', 'Istanbul', 'Husky', 'Bitbucket'
         ],
         links: [{ label: 'Case study', href: 'https://www.goodrequest.com/work/notino' }],
         icon: '/logos/notino-icon.png',
@@ -171,11 +174,21 @@ export const projects: Project[] = [
             'Improved the DB architecture early on to avoid future performance problems'
         ],
         tech: [
-            'TypeScript', 'NodeJS', 'Express-js', 'MongoDB', 'Redis', 'Stripe', 'Docker', 'S3', 'EC2',
-            'CloudWatch', 'Swagger', 'Sentry', 'Sequelize', 'JOI', 'JWT'
+            'TypeScript', 'NodeJS', 'Express-js', 'PostgreSQL', 'Sequelize', 'MongoDB', 'Redis', 'BullMQ', 'Stripe',
+            'Docker', 'S3', 'EC2', 'CloudWatch', 'Swagger', 'JOI', 'Passport', 'JWT', 'i18next', 'Nodemailer',
+            'Winston', 'Sentry', 'Mocha', 'Chai', 'Supertest', 'Husky'
         ],
         links: [{ label: 'Case study', href: 'https://www.goodrequest.com/work/aivodot' }],
-        icon: '/logos/aivodot-icon.png'
+        icon: '/logos/aivodot-icon.png',
+        images: [
+            { src: '/projects/aivodot/hero.webp', caption: 'Aivodot on laptop' },
+            { src: '/projects/aivodot/investor-personality.webp', caption: 'Investor personality and market search' },
+            { src: '/projects/aivodot/market-search.webp', caption: 'Spotting the next investment' },
+            { src: '/projects/aivodot/match-score.webp', caption: 'Per-security match score' },
+            { src: '/projects/aivodot/portfolio-simulation.webp', caption: 'Portfolio impact simulation' },
+            { src: '/projects/aivodot/dashboard.webp', caption: 'Investor dashboard' },
+            { src: '/projects/aivodot/onboarding.webp', caption: 'Onboarding by investor type' }
+        ]
     },
     {
         slug: 'kia',
@@ -199,7 +212,13 @@ export const projects: Project[] = [
         impact: ['Secured sensitive user data', 'Integrated multiple external APIs'],
         tech: ['TypeScript', 'NodeJS', 'Express-js', 'PostgreSQL', 'Sequelize', 'Redis', 'Docker', 'Swagger'],
         links: [{ label: 'Case study', href: 'https://www.goodrequest.com/work/kia-en' }],
-        icon: '/logos/kia-icon.png'
+        icon: '/logos/kia-icon.png',
+        images: [
+            { src: '/projects/kia/hero.webp', caption: 'Feedback platform across devices' },
+            { src: '/projects/kia/admin.webp', caption: 'HR admin: questionnaires and results' },
+            { src: '/projects/kia/questionnaire-builder.webp', caption: 'Questionnaire builder' },
+            { src: '/projects/kia/360-report.webp', caption: '360° feedback report' }
+        ]
     },
     {
         slug: 'benzinol',
@@ -218,7 +237,11 @@ export const projects: Project[] = [
         impact: ['Maintained 99.9% uptime', 'Kept data consistent across multiple devices'],
         tech: ['TypeScript', 'NodeJS', 'Express-js', 'PostgreSQL', 'Redis', 'Docker', 'Swagger', 'JOI', 'JWT'],
         links: [{ label: 'Case study', href: 'https://www.goodrequest.com/blog/grpartners-benzinol-apps' }],
-        icon: '/logos/benzinol-icon.png'
+        icon: '/logos/benzinol-icon.png',
+        images: [
+            { src: '/projects/benzinol/app-screens.webp', caption: 'Loyalty card, rewards and shop' },
+            { src: '/projects/benzinol/loyalty-card.webp', caption: 'Digital loyalty card at the pump' }
+        ]
     },
     {
         slug: 'bar-thunder',
@@ -242,7 +265,7 @@ export const projects: Project[] = [
             'Delivered browsing, rating, collections, shelf management, and cocktail creation',
             'One-command local environment for the whole stack'
         ],
-        tech: ['TypeScript', 'NextJS', 'React', 'Ant-Design', 'Docker'],
+        tech: ['TypeScript', 'NextJS', 'React', 'Ant-Design', 'Tailwind', 'Docker'],
         links: [{ label: 'Source', href: 'https://github.com/kot-1999/BarThunder' }],
         images: [
             { src: '/projects/bar-thunder/home.webp', caption: 'Home page' },
@@ -271,12 +294,16 @@ export const projects: Project[] = [
             'Update documentation and tests'
         ],
         impact: ['Used in personal and community projects', 'Open-source contributions and forks'],
-        tech: ['TypeScript', 'NodeJS', 'Express-js', 'JOI', 'Swagger'],
+        tech: ['TypeScript', 'NodeJS', 'Express-js', 'JOI', 'Swagger', 'Passport', 'Webpack', 'Eslint', 'Prettier', 'Husky', 'GitHub-Actions'],
         links: [
             { label: 'Source', href: 'https://github.com/GoodRequest/express-joi-to-swagger' },
             { label: 'npm', href: 'https://www.npmjs.com/package/@goodrequest/express-joi-to-swagger' }
         ],
-        icon: '/logos/goodrequest-icon.png'
+        icon: '/logos/goodrequest-icon.png',
+        images: [
+            { src: '/projects/express-joi-to-swagger/overview.webp', caption: 'Generated Swagger UI' },
+            { src: '/projects/express-joi-to-swagger/endpoint.webp', caption: 'Endpoint with parameters and responses from Joi schemas' }
+        ]
     },
     {
         slug: 'backend-express-template',
@@ -299,8 +326,9 @@ export const projects: Project[] = [
         ],
         impact: ['Used as the base for multiple side projects', 'Improved code consistency and maintainability'],
         tech: [
-            'TypeScript', 'NodeJS', 'Express-js', 'PostgreSQL', 'Prisma', 'Redis', 'Docker', 'Eslint', 'Winston',
-            'JWT', 'Helmet', 'OAuth', 'Swagger', 'Sentry', 'Google-Cloud-Console'
+            'TypeScript', 'NodeJS', 'Express-js', 'PostgreSQL', 'Prisma', 'Redis', 'Docker', 'Eslint', 'Prettier',
+            'Husky', 'Winston', 'Passport', 'JWT', 'Helmet', 'OAuth', 'Swagger', 'S3', 'i18next', 'Nodemailer', 'Sentry',
+            'Mocha', 'Chai', 'Supertest', 'GitHub-Actions', 'Google-Cloud-Console'
         ],
         links: [{ label: 'Source', href: 'https://github.com/kot-1999/BE-express' }],
         icon: '/logos/backend-template-icon.png'
