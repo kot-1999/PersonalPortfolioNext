@@ -40,7 +40,7 @@ export type Tech = {
     description?: string
 }
 
-export type ProjectCategory = 'Personal' | 'Commercial' | 'Open Source' | 'Hackathon'
+export type ProjectCategory = 'Personal' | 'Commercial' | 'Open Source' | 'Hackathon' | 'University'
 export type ProjectStatus = 'Live' | 'Active Development' | 'Maintained' | 'Completed' | 'Prototype'
 
 export type ProjectImage = {

@@ -22,7 +22,7 @@ Tech badges, skill tiles and book covers all open the same small **info popover*
 
 ### The terminal
 
-The home page hero has a small bash-style terminal (`components/Terminal.tsx`) that visitors can type into:
+A small bash-style terminal (`components/Terminal.tsx`) in the home page hero accepts commands:
 
 | Command | Effect |
 |---------|--------|

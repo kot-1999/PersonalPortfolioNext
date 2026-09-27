@@ -21,6 +21,7 @@ export default function SiteHeader() {
                 <Link href='/' className='pixel text-3xl'>
                     <span className='text-accent'>{profile.logo.slice(0, 2)}</span>
                     {profile.logo.slice(2)}
+                    <span aria-hidden className='cursor' />
                 </Link>
 
                 <nav aria-label='Main' className='hidden md:block'>

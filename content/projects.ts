@@ -48,6 +48,7 @@ export const projects: Project[] = [
             { label: 'API docs', href: 'https://kot-1999.github.io/flowers_shop_be/' }
         ],
         images: [
+            { src: '/projects/flowers-shop/cover.webp', caption: 'Admin, product editor, shop and order details' },
             { src: '/projects/flowers-shop/home.webp', caption: 'Home page' },
             { src: '/projects/flowers-shop/home-dark.webp', caption: 'Home page, dark theme' },
             { src: '/projects/flowers-shop/cart.webp', caption: 'Basket' },
@@ -56,55 +57,6 @@ export const projects: Project[] = [
             { src: '/projects/flowers-shop/admin-goods.webp', caption: 'Website management: goods' },
             { src: '/projects/flowers-shop/admin-edit-product.webp', caption: 'Website management: edit product' },
             { src: '/projects/flowers-shop/db-schema.webp', caption: 'Database schema' }
-        ]
-    },
-    {
-        slug: 'restboo',
-        name: 'RestBoo',
-        tagline: 'Multi-role restaurant booking platform for customers, admins and staff.',
-        category: 'Personal',
-        featured: true,
-        role: 'Idea creator, Backend Developer, System Architect, Database Designer',
-        duration: 'Ongoing',
-        team: '2 people (backend + frontend)',
-        status: 'Maintained',
-        overview: `RestBoo is a multi-role restaurant booking platform that centralises reservations for both
-            customers and restaurant operators. Users discover restaurants, see availability in real time
-            and book instantly, while administrators manage bookings, staff, brands, and locations across
-            multiple branches. It eliminates double bookings and fragmented tools by keeping all operations
-            in a single system, supporting both B2C and B2B workflows.`,
-        responsibilities: [
-            'Design the system architecture and database schema',
-            'Build REST APIs for users, admins, and employees with role-based access control',
-            'Implement authentication with JWT, sessions, and Google OAuth via Passport',
-            'Implement transactional emails for bookings, invitations, and password recovery',
-            'Integrate S3-compatible file storage and OpenStreetMap geolocation',
-            'Set up Docker environments, CI with GitHub Actions, and Mocha/Chai test suites'
-        ],
-        impact: [
-            'Delivered a complete booking flow for three user roles',
-            'Soft deletion, centralized error handling, and rate limiting for production-like robustness',
-            'Structured logging with daily rotation and Sentry error tracking',
-            'Fully dockerized setup that starts with a single command'
-        ],
-        tech: [
-            'TypeScript', 'NodeJS', 'Express-js', 'MySQL', 'Prisma', 'Redis', 'Docker', 'Passport', 'JWT',
-            'OAuth', 'Helmet', 'JOI', 'Swagger', 'S3', 'Nodemailer', 'Winston', 'Sentry', 'Mocha', 'Chai', 'Supertest',
-            'Husky', 'GitHub-Actions'
-        ],
-        links: [
-            { label: 'Backend', href: 'https://github.com/kot-1999/RestB_BE' },
-            { label: 'Frontend', href: 'https://github.com/kot-1999/RestB_FE' }
-        ],
-        images: [
-            { src: '/projects/restboo/home.webp', caption: 'Home page' },
-            { src: '/projects/restboo/restaurant-details.webp', caption: 'Restaurant details' },
-            { src: '/projects/restboo/user-bookings.webp', caption: 'User bookings' },
-            { src: '/projects/restboo/admin-dashboard.webp', caption: 'Admin dashboard' },
-            { src: '/projects/restboo/manage-bookings.webp', caption: 'Booking management' },
-            { src: '/projects/restboo/manage-restaurant.webp', caption: 'Restaurant create / edit' },
-            { src: '/projects/restboo/login.webp', caption: 'Login' },
-            { src: '/projects/restboo/email.webp', caption: 'Booking approved email' }
         ]
     },
     {
@@ -332,6 +284,54 @@ export const projects: Project[] = [
         ],
         links: [{ label: 'Source', href: 'https://github.com/kot-1999/BE-express' }],
         icon: '/logos/backend-template-icon.png'
+    },
+    {
+        slug: 'restboo',
+        name: 'RestBoo',
+        tagline: 'University project: a restaurant booking app for customers, admins and staff.',
+        category: 'University',
+        role: 'Idea creator, Backend Developer, System Architect, Database Designer',
+        duration: 'Ongoing',
+        team: '2 people (backend + frontend)',
+        status: 'Maintained',
+        overview: `RestBoo is a multi-role restaurant booking platform that centralises reservations for both
+            customers and restaurant operators. Users discover restaurants, see availability in real time
+            and book instantly, while administrators manage bookings, staff, brands, and locations across
+            multiple branches. It eliminates double bookings and fragmented tools by keeping all operations
+            in a single system, supporting both B2C and B2B workflows.`,
+        responsibilities: [
+            'Design the system architecture and database schema',
+            'Build REST APIs for users, admins, and employees with role-based access control',
+            'Implement authentication with JWT, sessions, and Google OAuth via Passport',
+            'Implement transactional emails for bookings, invitations, and password recovery',
+            'Integrate S3-compatible file storage and OpenStreetMap geolocation',
+            'Set up Docker environments, CI with GitHub Actions, and Mocha/Chai test suites'
+        ],
+        impact: [
+            'Delivered a complete booking flow for three user roles',
+            'Soft deletion, centralized error handling, and rate limiting for production-like robustness',
+            'Structured logging with daily rotation and Sentry error tracking',
+            'Fully dockerized setup that starts with a single command'
+        ],
+        tech: [
+            'TypeScript', 'NodeJS', 'Express-js', 'MySQL', 'Prisma', 'Redis', 'Docker', 'Passport', 'JWT',
+            'OAuth', 'Helmet', 'JOI', 'Swagger', 'S3', 'Nodemailer', 'Winston', 'Sentry', 'Mocha', 'Chai', 'Supertest',
+            'Husky', 'GitHub-Actions'
+        ],
+        links: [
+            { label: 'Backend', href: 'https://github.com/kot-1999/RestB_BE' },
+            { label: 'Frontend', href: 'https://github.com/kot-1999/RestB_FE' }
+        ],
+        images: [
+            { src: '/projects/restboo/home.webp', caption: 'Home page' },
+            { src: '/projects/restboo/restaurant-details.webp', caption: 'Restaurant details' },
+            { src: '/projects/restboo/user-bookings.webp', caption: 'User bookings' },
+            { src: '/projects/restboo/admin-dashboard.webp', caption: 'Admin dashboard' },
+            { src: '/projects/restboo/manage-bookings.webp', caption: 'Booking management' },
+            { src: '/projects/restboo/manage-restaurant.webp', caption: 'Restaurant create / edit' },
+            { src: '/projects/restboo/login.webp', caption: 'Login' },
+            { src: '/projects/restboo/email.webp', caption: 'Booking approved email' }
+        ]
     },
     {
         slug: 'city-desk',
