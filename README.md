@@ -10,7 +10,7 @@ the site rarely means touching a component.
 
 | Route | What it shows |
 |-------|---------------|
-| `/` | Hero with terminal panel, about, featured projects, experience & education, core stack, library preview |
+| `/` | Hero with interactive terminal, about, featured projects, experience & education, core stack, library preview |
 | `/projects/` | All projects, filterable by category (Personal / Commercial / Open Source / Hackathon) |
 | `/projects/<slug>/` | Project detail: facts, screenshot gallery, video, responsibilities, impact, tech stack |
 | `/skills/` | Every technology, grouped by category, filterable by level, category and name |
@@ -19,6 +19,35 @@ the site rarely means touching a component.
 
 Tech badges, skill tiles and book covers all open the same small **info popover** on click (see
 [Components](#components)).
+
+### The terminal
+
+A small bash-style terminal (`components/Terminal.tsx`) in the home page hero accepts commands:
+
+| Command | Effect |
+|---------|--------|
+| `help` | List commands |
+| `ls`, `ls projects`, `ls skills` | List "files", every project, or a skills summary |
+| `cd <dir>` | Navigate: `projects`, `skills`, `library`, `contact`, `~`, or a project like `cd projects/notino` |
+| `cat stack.txt`, `cat about.txt` | Print a "file" |
+| `./contact.sh` | Open the contact page |
+| `whoami`, `uname`, `pwd`, `date`, `echo`, `history`, `clear` | The usual suspects |
+| Tab, ↑ / ↓, Ctrl+L, Ctrl+C | Completion, history, clear, cancel |
+
+Unknown input answers `bash: <cmd>: command not found`. A few easter eggs are hidden in the `run()` switch;
+add your own there.
+
+### Slimes
+
+`components/Slimes.tsx` puts a few pixel slimes on the page itself. They stand on the top edges of cards, buttons,
+headings and images, hop between them, drop off edges, and ride along with the page as you scroll. Slimes left
+behind off-screen drop in from the top onto whatever is visible.
+
+They watch the cursor and hop away when it gets too close. Clicking one (anywhere that isn't a link or button) sends
+it flying with a "boing!". The canvas never blocks clicks, sits below the header, pauses in background tabs, and draws
+nothing when the visitor prefers reduced motion.
+
+Which elements count as platforms is `PLATFORM_SELECTOR`; sprites and colours are text grids at the top of the file.
 
 ## Run locally
 
@@ -144,12 +173,14 @@ shadows, square corners and faint static CRT scanlines. The site is intentionall
 
 | Component | Purpose |
 |-----------|---------|
+| `Slimes` | Pixel slimes that hop around on cards, buttons and headings; click one for a boing |
 | `InfoPopover` | Click-to-open info card on the native Popover API: one open at a time; closes on Esc, outside click, × or the trigger. Anchored to the trigger on desktop, a bottom sheet on phones. No backdrop, no scroll lock |
 | `TechBadge` | `TechBadge` (project pill), `SkillTile` (skills grid tile), `TechIcon`, `LevelBars`, all opening a tech popover with description and "Used in" |
 | `SkillsExplorer` | Skills page: level, category and search filters with live counts, grouped sections, level legend |
 | `LibraryGrid`, `BookCover` | Book shelves and clickable covers |
 | `ProjectsBrowser`, `ProjectCard` | Project grid with category filter |
 | `Gallery` | Screenshot carousel with thumbnails, arrow keys and swipe |
+| `Terminal` | Home page interactive bash prompt; commands live in its `run()` function |
 | `FilterChips` | Toggle-chip group with optional counts |
 | `ContactForm` | Formspree form with sending / sent / error states |
 | `SiteHeader`, `SiteFooter`, `PageHeader`, `SectionHeading` | Layout pieces |

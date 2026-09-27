@@ -19,8 +19,9 @@ export default function SiteHeader() {
         <header className='sticky top-0 z-40 border-b-2 border-border bg-bg/85 backdrop-blur'>
             <div className='container-page flex h-16 items-center justify-between'>
                 <Link href='/' className='pixel text-3xl'>
-                    <span className='text-accent'>/:</span>
-                    {profile.logo.replace('/:', '')}
+                    <span className='text-accent'>{profile.logo.slice(0, 2)}</span>
+                    {profile.logo.slice(2)}
+                    <span aria-hidden className='cursor' />
                 </Link>
 
                 <nav aria-label='Main' className='hidden md:block'>
