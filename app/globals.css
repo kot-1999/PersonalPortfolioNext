@@ -96,6 +96,11 @@ body::after {
     }
 }
 
+/* Set by Slimes while the pointer is over a clickable slime */
+.mob-hover {
+    cursor: crosshair;
+}
+
 @keyframes blink {
     50% { opacity: 0; }
 }
