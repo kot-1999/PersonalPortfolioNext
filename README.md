@@ -217,9 +217,17 @@ the static export.
 
 ## Deploy
 
-`.github/workflows/deploy.yml` lints, builds and deploys to GitHub Pages on push to `main` (enable
-*Settings → Pages → Source: GitHub Actions*). It sets `NEXT_PUBLIC_BASE_PATH=/<repo>` so assets resolve under
-`https://kot-1999.github.io/<repo>/`. For a custom domain or a `<user>.github.io` repo, remove that variable.
+`.github/workflows/deploy.yml` deploys the site to GitHub Pages on every push to `main`. You can also run it by hand
+from the Actions tab (**Deploy to GitHub Pages → Run workflow**). It installs dependencies, lints, builds the static
+export and publishes `out/`.
+
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+- The site is served at `https://<user>.github.io/<repo>/`, so the workflow sets `NEXT_PUBLIC_BASE_PATH=/<repo>`
+  from the repository name. Renaming the repo changes the URL and the base path together.
+- For a custom domain or a `<user>.github.io` repo (served from the root), remove `NEXT_PUBLIC_BASE_PATH` from the
+  workflow.
+- GitHub Pages is free for **public** repositories. Private repositories need a paid plan (GitHub Pro or higher).
 
 Any static host (Vercel, Netlify, Cloudflare Pages) works too: just serve `out/`.
 
