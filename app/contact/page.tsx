@@ -31,6 +31,10 @@ export default function ContactPage() {
                         <p className='mt-1'>{profile.location}</p>
                     </div>
                     <div>
+                        <h2 className='label text-muted'>Right to work</h2>
+                        <p className='mt-1'>{profile.workRights}</p>
+                    </div>
+                    <div>
                         <h2 className='label text-muted'>Elsewhere</h2>
                         <ul className='mt-2 space-y-2'>
                             {profile.socials.map((s) => (

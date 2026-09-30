@@ -97,13 +97,15 @@ public/
 | `content/projects.ts` | Projects. Order in the file is the order on the site |
 | `content/tech.ts` | Every technology. Entries with `proficiency` appear on the Skills page |
 | `content/books.ts` | Personal library |
+| `content/recommendations.ts` | LinkedIn recommendations (home page References section) |
 | `content/types.ts` | Types for all of the above, plus the list of skill categories |
 
 ### Add a project
 
 1. Put screenshots in `public/projects/<slug>/`: webp, max ~1600px wide.
    The **first image is the card cover**, cropped to 16:10 from the top, so pick one that crops well.
-2. Append an object to `content/projects.ts`. `client`, `featured`, `icon`, `images` and `videoUrl` are optional.
+2. Append an object to `content/projects.ts`. `client`, `featured`, `icon`, `images`, `videoUrl` and `note` are
+   optional. `note` is a short caveat under the links (e.g. that a repo is only a public beta).
 3. `featured: true` also shows it on the home page.
 
 A page is generated automatically at `/projects/<slug>/`. List technologies in `tech` by their key from
@@ -138,6 +140,11 @@ Redis: {
 
 Put a cover at `public/books/<slug>.webp` (~400px wide) and append to `content/books.ts`. `summary` and `takeaways`
 appear in the popover. A new `category` needs adding to `BookCategory` in `content/types.ts` and becomes a new shelf.
+
+### Add a recommendation
+
+Recommendations are in `content/recommendations.ts`. Each entry has a name, role and organisation, and links to the
+LinkedIn recommendations page. Paste a short excerpt into `quote` to show it on the home page.
 
 ### Safety net
 

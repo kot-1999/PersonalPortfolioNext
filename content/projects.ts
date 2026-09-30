@@ -16,9 +16,10 @@ export const projects: Project[] = [
         duration: 'Ongoing',
         team: 'Solo',
         status: 'Active Development',
-        overview: `Flowers Shop is a full-featured e-commerce platform for an online flower store. The backend
+        overview: `Flowers Shop is a full-featured e-commerce platform for a family flower business, in English,
+            Ukrainian, German and Slovak. The backend
             provides product management, multilingual content, user authentication, basket and order
-            processing, Stripe payments, Shippo shipping integration, and S3 cloud storage. A Next.js
+            processing, Stripe payments with webhooks, Shippo shipping integration, and S3 cloud storage. A Next.js
             frontend with Ant Design covers both the customer shop and the admin website management. The
             open-source repositories are a public beta; active development continues in private repositories.`,
         responsibilities: [
@@ -70,7 +71,7 @@ export const projects: Project[] = [
         featured: true,
         role: 'Backend Engineer',
         duration: '18 months',
-        team: 'Project managers, backend, frontend, QA, and designers',
+        team: 'Project managers, backend, frontend, QA, designers and DevOps',
         status: 'Live',
         overview: `Developed scalable backend services for Notino, one of the leading European e-commerce
             platforms for beauty and personal care. Focused on high-performance APIs, database optimization,
@@ -205,7 +206,7 @@ export const projects: Project[] = [
         client: 'OudTech',
         role: 'Volunteer Backend Developer',
         duration: '5 months',
-        team: 'Distributed volunteer team, 10 backend contributors',
+        team: 'Backend, frontend and design teams',
         status: 'Completed',
         overview: `Tech Academy is OudTech’s educational platform: beginners learn through video courses and quizzes,
             interns work on real projects, professionals collaborate, and clients post work. The Express + TypeScript
@@ -243,9 +244,9 @@ export const projects: Project[] = [
         tagline: 'Cocktail discovery and management app built on the Bar Assistant API.',
         category: 'Personal',
         role: 'Full Stack Developer',
-        duration: 'Ongoing',
+        duration: '3 months',
         team: 'Solo',
-        status: 'Maintained',
+        status: 'Archived',
         overview: `BarThunder is a cocktail management and discovery app for bartenders and enthusiasts who
             want to explore, rate, and organize drinks in a clean and fast interface. It connects to the Bar
             Assistant API and provides a user-friendly frontend for browsing a large collection of cocktails,

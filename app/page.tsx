@@ -9,6 +9,7 @@ import { SkillTile } from '@/components/TechBadge'
 import { books } from '@/content/books'
 import { profile } from '@/content/profile'
 import { getProject, projects } from '@/content/projects'
+import { recommendations, recommendationsUrl } from '@/content/recommendations'
 import { skills } from '@/lib/skills'
 
 const featured = projects.filter((p) => p.featured)
@@ -93,7 +94,7 @@ export default function Home() {
                 <SectionHeading eyebrow='Career' title='Experience' />
                 <ol>
                     {profile.experience.map((job) => (
-                        <li key={`${job.company}-${job.role}`} className='group grid sm:grid-cols-[9rem_1fr]'>
+                        <li key={`${job.company}-${job.role}`} className='group grid sm:grid-cols-[11rem_1fr]'>
                             <p className='meta hidden pr-6 pt-2 text-right sm:block'>{job.period}</p>
                             <div className='timeline-entry group-last:pb-0'>
                                 <p className='meta sm:hidden'>{job.period}</p>
@@ -121,6 +122,7 @@ export default function Home() {
                             <h4 className='mt-2 font-semibold'>{e.degree}</h4>
                             <p className='text-sm text-muted'>{e.school}</p>
                             <p className='mt-3 label text-accent'>{e.grade}</p>
+                            <p className='mt-3 text-sm leading-relaxed text-muted'>{e.detail}</p>
                             {'note' in e && e.note && (
                                 <a href={e.note.href} target='_blank' rel='noreferrer' className='mt-2 inline-block text-sm text-accent hover:underline'>
                                     {e.note.label} <ExternalIcon />
@@ -129,6 +131,32 @@ export default function Home() {
                         </li>
                     ))}
                 </ol>
+            </section>
+
+            {/* Recommendations */}
+            <section className='section'>
+                <SectionHeading
+                    eyebrow='References'
+                    title='Recommendations'
+                    description='Written recommendations from people I’ve worked and studied with, on my LinkedIn profile.'
+                />
+                <ul className='grid gap-6 sm:grid-cols-2'>
+                    {recommendations.map((r) => (
+                        <li key={r.name} className='card flex flex-col p-6'>
+                            {r.quote && (
+                                <blockquote className='mb-5 flex-1 leading-relaxed text-text'>
+                                    <span aria-hidden className='pixel mr-1 text-3xl text-accent'>“</span>
+                                    {r.quote}
+                                </blockquote>
+                            )}
+                            <p className='title-card'>{r.name}</p>
+                            <p className='mt-1 text-sm text-muted'>{r.role} · {r.organisation}</p>
+                            <a href={recommendationsUrl} target='_blank' rel='noreferrer' className='mt-4 inline-flex items-center gap-1 self-start text-sm text-accent hover:underline'>
+                                {r.quote ? 'Read in full on LinkedIn' : `Read ${r.name.split(' ')[0]}’s recommendation on LinkedIn`} <ExternalIcon />
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             </section>
 
             {/* Core stack */}

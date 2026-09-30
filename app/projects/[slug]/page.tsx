@@ -27,6 +27,7 @@ export default async function ProjectPage({ params }: Props) {
     if (!project) notFound()
 
     const index = projects.indexOf(project)
+    const prev = projects[(index - 1 + projects.length) % projects.length]
     const next = projects[(index + 1) % projects.length]
 
     const facts = [
@@ -122,8 +123,12 @@ export default async function ProjectPage({ params }: Props) {
                 </aside>
             </div>
 
-            <nav className='mt-20 border-t-2 border-dashed border-border pt-8'>
-                <Link href={`/projects/${next.slug}/`} className='group block text-right'>
+            <nav aria-label='More projects' className='mt-20 grid gap-8 border-t-2 border-dashed border-border pt-8 sm:grid-cols-2'>
+                <Link href={`/projects/${prev.slug}/`} className='group block'>
+                    <span className='label text-muted'>Previous project</span>
+                    <span className='pixel block text-4xl group-hover:text-accent'>← {prev.name}</span>
+                </Link>
+                <Link href={`/projects/${next.slug}/`} className='group block sm:text-right'>
                     <span className='label text-muted'>Next project</span>
                     <span className='pixel block text-4xl group-hover:text-accent'>{next.name} →</span>
                 </Link>

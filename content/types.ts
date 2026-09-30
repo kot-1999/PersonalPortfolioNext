@@ -41,7 +41,7 @@ export type Tech = {
 }
 
 export type ProjectCategory = 'Personal' | 'Commercial' | 'Volunteer' | 'Open Source' | 'Hackathon' | 'University'
-export type ProjectStatus = 'Live' | 'Active Development' | 'Maintained' | 'Completed' | 'Prototype'
+export type ProjectStatus = 'Live' | 'Active Development' | 'Maintained' | 'Completed' | 'Archived' | 'Prototype'
 
 export type ProjectImage = {
     /** Path inside /public, e.g. /projects/maze/1.webp */
@@ -93,4 +93,12 @@ export type Book = {
     cover: string
     summary: string
     takeaways: string
+}
+
+export type Recommendation = {
+    name: string
+    role: string
+    organisation: string
+    /** Short excerpt of the LinkedIn recommendation, in the author's words */
+    quote?: string
 }
