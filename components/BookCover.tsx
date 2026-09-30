@@ -34,7 +34,7 @@ export default function BookCover({ book }: { book: Book }) {
             </div>
             <p className='mt-3 leading-relaxed text-muted'>{book.summary}</p>
             <p className='mt-3 border-t border-dashed border-border pt-3 leading-relaxed'>
-                <span className='font-mono text-[11px] uppercase tracking-wider text-accent'>Takeaways</span>
+                <span className='label text-accent'>Takeaways</span>
                 <br />
                 <span className='text-muted'>{book.takeaways}</span>
             </p>

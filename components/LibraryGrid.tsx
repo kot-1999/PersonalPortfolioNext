@@ -22,7 +22,7 @@ export default function LibraryGrid({ books }: { books: Book[] }) {
                     .filter((shelf) => category === 'All' || shelf === category)
                     .map((shelf) => (
                         <section key={shelf}>
-                            <h2 className='pixel mb-5 text-3xl'>
+                            <h2 className='title-card mb-5'>
                                 <span className='text-teal'>#</span> {shelf}
                             </h2>
                             {/* Every cell carries a slice of plank, so each row reads as one continuous shelf */}

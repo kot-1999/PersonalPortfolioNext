@@ -1,0 +1,135 @@
+/*
+ * The design system: reusable classes for typography, surfaces and controls.
+ * Defined with Tailwind v4 @utility, so they work with variants (hover:, sm:, …) and can be composed with @apply.
+ *
+ * Rule of thumb: design decisions (type scale, colours, borders, shadows) live here;
+ * layout (flex, grid, gap, one-off margins) stays inline in the markup.
+ *
+ * Note: Slimes.tsx uses .card, .btn-primary and .btn-ghost as platforms. Keep those names.
+ */
+
+/* ---------- Layout ---------- */
+
+@utility container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+/* ---------- Typography ---------- */
+
+/* VT323 pixel font; combine with a size, or use one of the title-* classes below */
+@utility pixel {
+    font-family: var(--font-vt323), var(--font-vt323-ext), var(--font-geist-mono), ui-monospace, monospace;
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+
+/* Page title (h1) */
+@utility title-page {
+    @apply pixel text-5xl sm:text-7xl;
+}
+
+/* Section title (h2 under an eyebrow) */
+@utility title-section {
+    @apply pixel text-4xl sm:text-5xl;
+}
+
+/* Title of a card, block or sub-section */
+@utility title-card {
+    @apply pixel text-3xl;
+}
+
+/* Small pixel title, e.g. inside popovers */
+@utility title-sm {
+    @apply pixel text-2xl;
+}
+
+/* "> SECTION" label above titles */
+@utility eyebrow {
+    @apply pixel text-xl uppercase text-accent;
+    &::before {
+        content: '> ';
+        color: var(--teal);
+    }
+}
+
+/* Small uppercase mono label for metadata ("ROLE", "USED IN", categories). Add a text-* colour at the call site. */
+@utility label {
+    @apply font-mono text-[11px] uppercase tracking-wider;
+}
+
+/* Dates and periods */
+@utility meta {
+    @apply font-mono text-xs text-teal;
+}
+
+/* Blinking "_" after the element */
+@utility cursor {
+    &::after {
+        content: '_';
+        margin-left: 0.1em;
+        color: var(--accent);
+        animation: blink 1.1s steps(1) infinite;
+    }
+}
+
+/* Spacing between paragraphs of long text */
+@utility prose-body {
+    & p + p {
+        @apply mt-4;
+    }
+}
+
+/* ---------- Surfaces ---------- */
+
+@utility retro-shadow {
+    box-shadow: 4px 4px 0 var(--shadow);
+}
+
+@utility card {
+    @apply rounded-lg border-2 border-border bg-surface retro-shadow;
+}
+
+/* Lift on hover, for clickable cards */
+@utility card-hover {
+    @apply transition-[transform,box-shadow,border-color] duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-accent;
+    &:hover {
+        box-shadow: 6px 6px 0 var(--shadow);
+    }
+}
+
+/* ---------- Controls ---------- */
+
+@utility chip {
+    @apply inline-flex items-center rounded-md border border-border bg-surface-2 px-2.5 py-1 font-mono text-xs text-muted;
+}
+
+/* A chip that is a link */
+@utility chip-link {
+    @apply chip hover:border-accent hover:text-accent;
+}
+
+@utility btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border-2 px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-wide transition-[transform,box-shadow,background-color,color] duration-100;
+    box-shadow: 3px 3px 0 var(--shadow);
+    &:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 4px 4px 0 var(--shadow);
+    }
+    &:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 var(--shadow);
+    }
+}
+
+@utility btn-primary {
+    @apply btn border-accent bg-accent text-accent-contrast disabled:opacity-60;
+}
+
+@utility btn-ghost {
+    @apply btn border-border bg-surface text-text hover:border-accent hover:text-accent;
+}
+
+/* Text inputs and textareas; set padding at the call site */
+@utility field {
+    @apply w-full rounded-md border-2 border-border bg-bg font-mono text-sm text-text outline-none transition-colors placeholder:text-muted/70 focus:border-accent;
+}

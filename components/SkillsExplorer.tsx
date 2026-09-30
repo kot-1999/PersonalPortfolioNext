@@ -53,11 +53,11 @@ export default function SkillsExplorer() {
             <div className='card space-y-5 p-4 sm:p-5'>
                 <div className='flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between'>
                     <div>
-                        <p className='mb-2 font-mono text-[11px] uppercase tracking-wider text-muted'>Level</p>
+                        <p className='mb-2 label text-muted'>Level</p>
                         <FilterChips label='Filter skills by level' options={LEVEL_OPTIONS} value={level} onChange={setLevel} counts={levelCounts} />
                     </div>
                     <label className='block lg:w-64'>
-                        <span className='mb-2 block font-mono text-[11px] uppercase tracking-wider text-muted'>Search</span>
+                        <span className='mb-2 block label text-muted'>Search</span>
                         <input
                             type='search'
                             value={query}
@@ -68,7 +68,7 @@ export default function SkillsExplorer() {
                     </label>
                 </div>
                 <div>
-                    <p className='mb-2 font-mono text-[11px] uppercase tracking-wider text-muted'>Category</p>
+                    <p className='mb-2 label text-muted'>Category</p>
                     <FilterChips label='Filter skills by category' options={CATEGORY_OPTIONS} value={category} onChange={setCategory} counts={categoryCounts} />
                 </div>
                 <ul className='flex flex-wrap gap-x-6 gap-y-2 border-t border-dashed border-border pt-4 text-xs text-muted'>
@@ -90,7 +90,7 @@ export default function SkillsExplorer() {
                     {sections.map((section) => (
                         <section key={section.title}>
                             <h2 className='mb-4 flex items-baseline gap-3 border-b-2 border-dashed border-border pb-2'>
-                                <span className='pixel text-3xl text-text'>{section.title}</span>
+                                <span className='title-card text-text'>{section.title}</span>
                             </h2>
                             <ul className='grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
                                 {section.items.map((s) => (
@@ -104,7 +104,7 @@ export default function SkillsExplorer() {
                 </div>
             ) : (
                 <div className='card mt-6 p-8 text-center'>
-                    <p className='pixel text-2xl'>No matches</p>
+                    <p className='title-sm'>No matches</p>
                     <button type='button' onClick={reset} className='btn-ghost mt-4'>Reset filters</button>
                 </div>
             )}

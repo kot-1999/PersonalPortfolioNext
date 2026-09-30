@@ -40,7 +40,7 @@ export type Tech = {
     description?: string
 }
 
-export type ProjectCategory = 'Personal' | 'Commercial' | 'Open Source' | 'Hackathon' | 'University'
+export type ProjectCategory = 'Personal' | 'Commercial' | 'Volunteer' | 'Open Source' | 'Hackathon' | 'University'
 export type ProjectStatus = 'Live' | 'Active Development' | 'Maintained' | 'Completed' | 'Prototype'
 
 export type ProjectImage = {
@@ -73,6 +73,8 @@ export type Project = {
     images?: ProjectImage[]
     /** YouTube embed URL */
     videoUrl?: string
+    /** Short caveat shown under the links, e.g. that the public repo is only a beta */
+    note?: string
 }
 
 export type BookCategory =

@@ -32,11 +32,11 @@ export default function ProjectCard({ project }: { project: Project }) {
             </div>
 
             <div className='flex flex-1 flex-col p-5'>
-                <p className='mb-2 font-mono text-[11px] uppercase tracking-wider text-teal'>
+                <p className='mb-2 label text-teal'>
                     {project.category}
                     {project.client && ` · ${project.client}`}
                 </p>
-                <h3 className='pixel text-3xl group-hover:text-accent'>{project.name}</h3>
+                <h3 className='title-card group-hover:text-accent'>{project.name}</h3>
                 <p className='mt-2 flex-1 text-sm text-muted'>{project.tagline}</p>
                 <p className='mt-4 truncate border-t border-dashed border-border pt-3 font-mono text-xs text-muted'>
                     {project.tech.slice(0, 3).map((t) => tech[t].name).join(' · ')}

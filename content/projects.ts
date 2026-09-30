@@ -9,6 +9,7 @@ export const projects: Project[] = [
         slug: 'flowers-shop',
         name: 'Flowers Shop',
         tagline: 'Multilingual e-commerce platform with payments, shipping and an AI assistant.',
+        note: 'The linked repositories are the public beta. Active development continues in private repositories.',
         category: 'Personal',
         featured: true,
         role: 'Backend Engineer / Architect',
@@ -18,7 +19,8 @@ export const projects: Project[] = [
         overview: `Flowers Shop is a full-featured e-commerce platform for an online flower store. The backend
             provides product management, multilingual content, user authentication, basket and order
             processing, Stripe payments, Shippo shipping integration, and S3 cloud storage. A Next.js
-            frontend with Ant Design covers both the customer shop and the admin website management.`,
+            frontend with Ant Design covers both the customer shop and the admin website management. The
+            open-source repositories are a public beta; active development continues in private repositories.`,
         responsibilities: [
             'Design and implement a scalable e-commerce backend architecture',
             'Develop REST APIs for users, products, categories, baskets, and orders',
@@ -43,9 +45,9 @@ export const projects: Project[] = [
             'GitHub-Actions', 'NextJS', 'React', 'Ant-Design', 'Tailwind'
         ],
         links: [
-            { label: 'Backend', href: 'https://github.com/kot-1999/flowers_shop_be' },
-            { label: 'Frontend', href: 'https://github.com/kot-1999/flowers_shop_fe' },
-            { label: 'API docs', href: 'https://kot-1999.github.io/flowers_shop_be/' }
+            { label: 'Backend (public beta)', href: 'https://github.com/kot-1999/flowers_shop_be' },
+            { label: 'Frontend (public beta)', href: 'https://github.com/kot-1999/flowers_shop_fe' },
+            { label: 'API docs (beta)', href: 'https://kot-1999.github.io/flowers_shop_be/' }
         ],
         images: [
             { src: '/projects/flowers-shop/cover.webp', caption: 'Admin, product editor, shop and order details' },
@@ -193,6 +195,46 @@ export const projects: Project[] = [
         images: [
             { src: '/projects/benzinol/app-screens.webp', caption: 'Loyalty card, rewards and shop' },
             { src: '/projects/benzinol/loyalty-card.webp', caption: 'Digital loyalty card at the pump' }
+        ]
+    },
+    {
+        slug: 'tech-academy',
+        name: 'Tech Academy',
+        tagline: 'OudTech’s learning and internship platform: courses, quizzes, certificates and real projects.',
+        category: 'Volunteer',
+        client: 'OudTech',
+        role: 'Volunteer Backend Developer',
+        duration: '5 months',
+        team: 'Distributed volunteer team, 10 backend contributors',
+        status: 'Completed',
+        overview: `Tech Academy is OudTech’s educational platform: beginners learn through video courses and quizzes,
+            interns work on real projects, professionals collaborate, and clients post work. The Express + TypeScript
+            backend is split into services for authentication, courses, quizzes, progress tracking, PDF certificates,
+            internships, projects, notifications and admin dashboards, with MongoDB for storage and Socket.IO for
+            real-time updates.`,
+        responsibilities: [
+            'Replace scattered environment variable usage with a typed, per-environment configuration layer',
+            'Containerise the stack with Docker Compose: fully dockerised or hybrid (local backend) modes, with MongoDB and MailHog for email testing',
+            'Audit and lock dependency versions, fixing broken and vulnerable packages',
+            'Refactor app bootstrapping: remove a duplicate Express app, fix route registration, migrate require calls to ES imports',
+            'Document how to run and test the project in each mode for the rest of the team'
+        ],
+        impact: [
+            'One-command dev and test environments, identical for every contributor',
+            'Configuration mistakes caught at compile time instead of at runtime',
+            'Cleaner, more maintainable codebase for a distributed volunteer team'
+        ],
+        tech: [
+            'TypeScript', 'NodeJS', 'Express-js', 'MongoDB', 'Mongoose', 'SocketIO', 'JWT', 'OAuth', 'Zod', 'Helmet',
+            'Swagger', 'Nodemailer', 'Docker', 'Jest', 'Supertest', 'GitHub-Actions', 'Eslint'
+        ],
+        links: [{ label: 'Website', href: 'https://oud-tech-academy.netlify.app' }],
+        images: [
+            { src: '/projects/tech-academy/home.webp', caption: 'Home page' },
+            { src: '/projects/tech-academy/academy.webp', caption: 'Academy: courses and progress tracking' },
+            { src: '/projects/tech-academy/intern.webp', caption: 'Internship programme' },
+            { src: '/projects/tech-academy/client.webp', caption: 'Clients hiring tech talent' },
+            { src: '/projects/tech-academy/sign-up.webp', caption: 'Sign up' }
         ]
     },
     {

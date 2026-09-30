@@ -58,23 +58,23 @@ function TechInfo({ id, exclude }: { id: TechKey, exclude?: string }) {
             <div className='flex items-center gap-3'>
                 <TechIcon name={t.name} icon={techIcon(id)} size={40} />
                 <div>
-                    <p className='pixel text-2xl'>{t.name}</p>
+                    <p className='title-sm'>{t.name}</p>
                     {t.proficiency && <LevelBars level={t.proficiency} withLabel />}
                 </div>
             </div>
             {t.description && <p className='mt-3 leading-relaxed text-muted'>{t.description}</p>}
             {t.categories && (
-                <p className='mt-3 font-mono text-[11px] uppercase tracking-wider text-muted/80'>{t.categories.join(' · ')}</p>
+                <p className='mt-3 label text-muted/80'>{t.categories.join(' · ')}</p>
             )}
             {usedIn.length > 0 && (
                 <div className='mt-3 border-t border-dashed border-border pt-3'>
-                    <p className='font-mono text-[11px] uppercase tracking-wider text-muted'>
+                    <p className='label text-muted'>
                         {exclude ? 'Also used in' : 'Used in'}
                     </p>
                     <ul className='mt-2 flex flex-wrap gap-1.5'>
                         {usedIn.map((p) => (
                             <li key={p.slug}>
-                                <Link href={`/projects/${p.slug}/`} className='chip hover:border-accent hover:text-accent'>
+                                <Link href={`/projects/${p.slug}/`} className='chip-link'>
                                     {p.name}
                                 </Link>
                             </li>
@@ -95,7 +95,7 @@ export function LevelBars({ level, withLabel = false }: { level: Proficiency, wi
                     <span key={i} className={`h-2 w-3 ${i <= meta.bars ? meta.bg : 'bg-border'}`} />
                 ))}
             </span>
-            <span className={withLabel ? `font-mono text-[11px] uppercase tracking-wider ${meta.text}` : 'sr-only'}>{level}</span>
+            <span className={withLabel ? `label ${meta.text}` : 'sr-only'}>{level}</span>
         </span>
     )
 }

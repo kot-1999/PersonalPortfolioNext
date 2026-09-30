@@ -53,7 +53,7 @@ export default function Home() {
             <section className='container-page grid gap-10 py-20 lg:grid-cols-5'>
                 <div className='lg:col-span-3'>
                     <p className='eyebrow mb-2'>About</p>
-                    <h2 className='pixel text-4xl sm:text-5xl'>Hello and welcome</h2>
+                    <h2 className='title-section'>Hello and welcome</h2>
                     <div className='prose-body mt-5 text-muted'>
                         {[...profile.about, ...profile.summary].map((p) => <p key={p.slice(0, 20)}>{p}</p>)}
                     </div>
@@ -62,7 +62,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className='card self-start p-6 lg:col-span-2'>
-                    <h3 className='pixel text-3xl text-accent'>What I do</h3>
+                    <h3 className='title-card text-accent'>What I do</h3>
                     <ul className='mt-4 space-y-3'>
                         {profile.whatIDo.map((item) => (
                             <li key={item} className='flex gap-3 text-sm'>
@@ -92,20 +92,23 @@ export default function Home() {
                 <div className='card p-6 sm:p-8'>
                     <p className='eyebrow mb-4'>Experience</p>
                     {profile.experience.map((job) => (
-                        <div key={job.company}>
-                            <h3 className='pixel text-4xl'>{job.company}</h3>
+                        <div key={`${job.company}-${job.role}`} className='mt-8 first-of-type:mt-0'>
+                            <div className='flex flex-wrap items-baseline justify-between gap-x-4'>
+                                <h3 className='pixel text-4xl'>{job.company}</h3>
+                                <span className='meta'>{job.period}</span>
+                            </div>
                             <p className='text-muted'>{job.role}</p>
                             <p className='mt-3 text-sm'>{job.description}</p>
-                            <div className='mt-4 flex flex-wrap gap-2'>
+                            {job.projects.length > 0 && <div className='mt-4 flex flex-wrap gap-2'>
                                 {job.projects.map((slug) => {
                                     const p = getProject(slug)
                                     return p && (
-                                        <Link key={slug} href={`/projects/${slug}/`} className='chip hover:border-accent hover:text-accent'>
+                                        <Link key={slug} href={`/projects/${slug}/`} className='chip-link'>
                                             {p.name}
                                         </Link>
                                     )
                                 })}
-                            </div>
+                            </div>}
                         </div>
                     ))}
                 </div>
@@ -116,9 +119,10 @@ export default function Home() {
                             <li key={e.degree}>
                                 <div className='flex flex-wrap items-baseline justify-between gap-x-4'>
                                     <h3 className='font-semibold'>{e.degree}</h3>
-                                    <span className='font-mono text-xs text-teal'>{e.period}</span>
+                                    <span className='meta'>{e.period}</span>
                                 </div>
                                 <p className='text-sm text-muted'>{e.school}</p>
+                                <p className='mt-1 font-mono text-xs uppercase tracking-wider text-accent'>{e.grade}</p>
                                 {'note' in e && e.note && (
                                     <a href={e.note.href} target='_blank' rel='noreferrer' className='mt-1 inline-block text-sm text-accent hover:underline'>
                                         {e.note.label} <ExternalIcon />

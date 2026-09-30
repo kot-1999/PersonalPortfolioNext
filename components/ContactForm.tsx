@@ -30,7 +30,7 @@ export default function ContactForm({ action }: { action: string }) {
     if (status === 'sent') {
         return (
             <div role='status' className='card p-8 text-center'>
-                <p className='pixel text-3xl text-accent'>Message sent — thank you!</p>
+                <p className='title-card text-accent'>Message sent — thank you!</p>
                 <p className='mt-2 text-muted'>I’ll get back to you as soon as I can.</p>
                 <button type='button' className='btn-ghost mt-6' onClick={() => setStatus('idle')}>
                     Send another
@@ -39,7 +39,7 @@ export default function ContactForm({ action }: { action: string }) {
         )
     }
 
-    const field = 'mt-2 w-full rounded-md border-2 border-border bg-bg font-mono text-sm px-4 py-3 text-text outline-none transition-colors placeholder:text-muted/70 focus:border-accent'
+    const field = 'field mt-2 px-4 py-3'
 
     return (
         <form onSubmit={onSubmit} className='card space-y-5 p-6 sm:p-8'>

@@ -199,6 +199,13 @@ export const tech = {
         description: 'In-memory data store used for caching, queues, sessions, and real-time data.'
     },
 
+    SQLite: {
+        name: 'SQLite',
+        icon: '/icons/SQLite.svg',
+        categories: ['Storage'],
+        proficiency: 'Advanced',
+        description: 'Embedded, file-based SQL database for lightweight apps, prototypes and fast local testing.'
+    },
     Mongoose: {
         name: 'Mongoose',
         icon: '/icons/Mongoose.svg',

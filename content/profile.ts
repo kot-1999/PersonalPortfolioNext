@@ -12,10 +12,10 @@ export const profile = {
 
     headline: 'I build scalable, well-tested backend systems.',
     about: [
-        `I am a Backend Developer with 3+ years of production experience building scalable backend
-        systems for B2B, B2C, and fintech products. I’ve worked on applications serving hundreds of
-        thousands of clients and millions of requests per hour. I focus on code quality, performance,
-        clean architecture, and long-term maintainability.`
+        `I am a Backend Developer with 3+ years of experience building scalable Node.js systems for B2B,
+        B2C, and fintech products. I’ve contributed to applications serving 30M+ users with high traffic
+        and 99.9% uptime. I focus on clean architecture, performance optimisation, and reliable
+        data-intensive systems.`
     ],
     summary: [
         `Working at GoodRequest I’ve delivered robust solutions for companies like Notino, KIA, and
@@ -23,6 +23,9 @@ export const profile = {
         integrating complex workflows. I work across the full backend stack, from Node.js, TypeScript,
         and Express.js to PostgreSQL, Redis, Docker, and AWS, ensuring clean, maintainable, and
         well-tested code that powers real-world systems.`,
+        `Today I work as a self-employed full-stack developer, mainly with clients on Upwork, while
+        building FlowersShop, a multi-language e-commerce platform, from requirements to deployment. Its
+        public beta is open source; active development continues in private repositories.`,
         `Beyond professional projects, I build personal and open-source applications that show my
         ability to tackle complex logic, ship functional prototypes, and experiment with new
         technologies. With a solid foundation in algorithms, design patterns, and software architecture,
@@ -41,16 +44,45 @@ export const profile = {
 
     stats: [
         { value: '3+', label: 'years in production' },
-        { value: '93%', label: 'test coverage reached on Notino' },
-        { value: '30k+', label: 'markets scored on Aivodot' }
+        { value: '30M+', label: 'users on apps I’ve worked on' },
+        { value: '99.9%', label: 'uptime on production systems' }
     ],
 
     experience: [
         {
+            company: 'Self-employed',
+            role: 'Full-Stack Developer · Upwork',
+            period: '2026 – Present',
+            description: 'Freelance full-stack work for clients on Upwork, and FlowersShop, a multi-language e-commerce platform (public beta; active development continues in private repositories).',
+            projects: ['flowers-shop']
+        },
+        {
+            company: 'OudTech',
+            role: 'Volunteer Backend Developer',
+            period: '2026',
+            description: 'Improved the Tech Academy platform’s quality through refactoring and architectural improvements.',
+            projects: ['tech-academy']
+        },
+        {
             company: 'GoodRequest',
-            role: 'Backend Engineer',
-            description: 'Backend services for Notino, KIA, Aivodot and Benzinol in cross-functional teams.',
+            role: 'Backend Developer',
+            period: '2022 – 2025',
+            description: 'Designed REST APIs, optimised SQL queries and introduced caching that cut backend complexity and response times, in Agile teams shipping software used by millions.',
             projects: ['notino', 'aivodot', 'kia', 'benzinol', 'express-joi-to-swagger']
+        },
+        {
+            company: 'GoodRequest Academy',
+            role: 'Intern Backend Developer',
+            period: '2022',
+            description: 'Built backend features under senior mentorship; first commercial experience with Git, databases, REST APIs and Agile.',
+            projects: []
+        },
+        {
+            company: 'Self-employed',
+            role: 'C-Language Teacher',
+            period: '2020 – 2022',
+            description: 'One-to-one C lessons for around 20 university students: algorithms, pointers, memory management and debugging.',
+            projects: []
         }
     ],
 
@@ -58,12 +90,14 @@ export const profile = {
         {
             degree: 'MSc Web Development',
             school: 'University of Roehampton, London',
-            period: '2025 – 2026'
+            period: '2025 – 2026',
+            grade: 'First class honours'
         },
         {
             degree: 'BSc Computer Science',
             school: 'Technical University of Košice',
             period: '2019 – 2022',
+            grade: 'First class honours',
             note: {
                 label: 'Thesis: Implementation of OpenAI environment',
                 href: 'https://www.youtube.com/watch?v=DrO_A16kGj8'

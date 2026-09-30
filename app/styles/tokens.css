@@ -1,0 +1,46 @@
+/*
+ * Design tokens: every colour, font and radius used on the site.
+ * Dark retro theme; the site is dark-only on purpose, so there is no light palette.
+ * Components only use the semantic names (bg-surface, text-muted, border-accent, …).
+ */
+:root {
+    --bg: #15120e;
+    --surface: #1e1914;
+    --surface-2: #29221a;
+    --border: #4a3d2e;
+    --text: #f3e9d2;
+    --muted: #b8a88c;
+    --accent: #ffb347;
+    --accent-soft: #ffb3471f;
+    --accent-contrast: #15120e;
+    --teal: #5fd3b0;
+    --coral: #ff7a59;
+    --plate: #f3e9d2;
+    --shadow: #000000;
+    --danger: #ff7a59;
+}
+
+@theme inline {
+    --color-bg: var(--bg);
+    --color-surface: var(--surface);
+    --color-surface-2: var(--surface-2);
+    --color-border: var(--border);
+    --color-text: var(--text);
+    --color-muted: var(--muted);
+    --color-accent: var(--accent);
+    --color-accent-soft: var(--accent-soft);
+    --color-accent-contrast: var(--accent-contrast);
+    --color-teal: var(--teal);
+    --color-coral: var(--coral);
+    --color-plate: var(--plate);
+    --color-danger: var(--danger);
+    --font-sans: var(--font-geist-sans), var(--font-geist-sans-ext), ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), var(--font-geist-mono-ext), ui-monospace, monospace;
+
+    /* Squarer corners for the retro look */
+    --radius-sm: 2px;
+    --radius-md: 3px;
+    --radius-lg: 4px;
+    --radius-xl: 5px;
+    --radius-2xl: 6px;
+}

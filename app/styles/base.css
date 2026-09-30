@@ -1,0 +1,64 @@
+/* Page-wide defaults: background, CRT scanlines, selection, focus ring, motion and keyframes. */
+
+html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(ellipse at top, #ffb34712, transparent 60%),
+        radial-gradient(circle at 1px 1px, #ffffff0a 1px, transparent 0);
+    background-size: 100% 100%, 22px 22px;
+    background-attachment: fixed;
+    color: var(--text);
+}
+
+/* Faint CRT scanlines. Static, never intercepts clicks. */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom, #0000 0 2px, #00000038 2px 3px);
+    opacity: 0.35;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--accent-contrast);
+}
+
+/* In the base layer so utilities (e.g. focus-visible:outline-none) can override it */
+@layer base {
+    :focus-visible {
+        outline: 2px dashed var(--accent);
+        outline-offset: 3px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* Set by Slimes while the pointer is over a clickable slime */
+.mob-hover {
+    cursor: crosshair;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes pop-in {
+    from { opacity: 0; transform: translateY(4px) scale(0.98); }
+}
