@@ -29,7 +29,7 @@ export default function BookCover({ book }: { book: Book }) {
                 <div className='min-w-0'>
                     <p className='font-semibold leading-snug'>{book.title}</p>
                     <p className='mt-1 text-xs text-muted'>{book.author}</p>
-                    <p className='mt-2 font-mono text-[10px] uppercase tracking-wider text-teal'>{book.category}</p>
+                    <p className='mt-2 label text-teal'>{book.category}</p>
                 </div>
             </div>
             <p className='mt-3 leading-relaxed text-muted'>{book.summary}</p>

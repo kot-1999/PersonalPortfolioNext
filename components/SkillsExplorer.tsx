@@ -63,7 +63,7 @@ export default function SkillsExplorer() {
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             placeholder='e.g. Redis'
-                            className='w-full rounded-md border-2 border-border bg-bg px-3 py-1.5 font-mono text-sm text-text outline-none placeholder:text-muted/60 focus:border-accent'
+                            className='field px-3 py-1.5'
                         />
                     </label>
                 </div>

@@ -21,17 +21,17 @@ export default function ContactPage() {
                 </div>
                 <aside className='space-y-6'>
                     <div>
-                        <h2 className='font-mono text-xs uppercase tracking-wider text-muted'>Email</h2>
+                        <h2 className='label text-muted'>Email</h2>
                         <a href={`mailto:${profile.email}`} className='mt-1 block break-all text-accent hover:underline'>
                             {profile.email}
                         </a>
                     </div>
                     <div>
-                        <h2 className='font-mono text-xs uppercase tracking-wider text-muted'>Location</h2>
+                        <h2 className='label text-muted'>Location</h2>
                         <p className='mt-1'>{profile.location}</p>
                     </div>
                     <div>
-                        <h2 className='font-mono text-xs uppercase tracking-wider text-muted'>Elsewhere</h2>
+                        <h2 className='label text-muted'>Elsewhere</h2>
                         <ul className='mt-2 space-y-2'>
                             {profile.socials.map((s) => (
                                 <li key={s.href}>

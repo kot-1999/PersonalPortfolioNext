@@ -38,7 +38,7 @@ export default async function ProjectPage({ params }: Props) {
 
     return (
         <article className='container-page'>
-            <Link href='/projects/' className='mt-8 inline-block font-mono text-xs uppercase tracking-wider text-muted hover:text-accent'>
+            <Link href='/projects/' className='mt-8 inline-block label text-muted hover:text-accent'>
                 ← All projects
             </Link>
 
@@ -124,7 +124,7 @@ export default async function ProjectPage({ params }: Props) {
 
             <nav className='mt-20 border-t-2 border-dashed border-border pt-8'>
                 <Link href={`/projects/${next.slug}/`} className='group block text-right'>
-                    <span className='font-mono text-xs uppercase tracking-wider text-muted'>Next project</span>
+                    <span className='label text-muted'>Next project</span>
                     <span className='pixel block text-4xl group-hover:text-accent'>{next.name} →</span>
                 </Link>
             </nav>

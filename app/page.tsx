@@ -50,32 +50,33 @@ export default function Home() {
             </section>
 
             {/* About */}
-            <section className='container-page grid gap-10 py-20 lg:grid-cols-5'>
-                <div className='lg:col-span-3'>
-                    <p className='eyebrow mb-2'>About</p>
-                    <h2 className='title-section'>Hello and welcome</h2>
-                    <div className='prose-body mt-5 text-muted'>
-                        {[...profile.about, ...profile.summary].map((p) => <p key={p.slice(0, 20)}>{p}</p>)}
+            <section className='section'>
+                <SectionHeading eyebrow='About' title='Hello and welcome' />
+                <div className='grid gap-10 lg:grid-cols-5'>
+                    <div className='lg:col-span-3'>
+                        <div className='prose-body text-muted'>
+                            {[...profile.about, ...profile.summary].map((p) => <p key={p.slice(0, 20)}>{p}</p>)}
+                        </div>
+                        <div className='mt-6 flex flex-wrap gap-2'>
+                            {profile.domains.map((d) => <span key={d} className='chip'>{d}</span>)}
+                        </div>
                     </div>
-                    <div className='mt-6 flex flex-wrap gap-2'>
-                        {profile.domains.map((d) => <span key={d} className='chip'>{d}</span>)}
+                    <div className='card self-start p-6 lg:col-span-2'>
+                        <h3 className='title-card text-accent'>What I do</h3>
+                        <ul className='mt-4 space-y-3'>
+                            {profile.whatIDo.map((item) => (
+                                <li key={item} className='flex gap-3 text-sm'>
+                                    <span aria-hidden className='font-mono text-teal'>▸</span>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </div>
-                <div className='card self-start p-6 lg:col-span-2'>
-                    <h3 className='title-card text-accent'>What I do</h3>
-                    <ul className='mt-4 space-y-3'>
-                        {profile.whatIDo.map((item) => (
-                            <li key={item} className='flex gap-3 text-sm'>
-                                <span aria-hidden className='font-mono text-teal'>▸</span>
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </section>
 
             {/* Featured projects */}
-            <section className='container-page py-12'>
+            <section className='section'>
                 <SectionHeading
                     eyebrow='Selected work'
                     title='Featured projects'
@@ -88,54 +89,50 @@ export default function Home() {
             </section>
 
             {/* Experience & education */}
-            <section className='container-page grid gap-6 py-20 lg:grid-cols-2'>
-                <div className='card p-6 sm:p-8'>
-                    <p className='eyebrow mb-4'>Experience</p>
+            <section className='section'>
+                <SectionHeading eyebrow='Career' title='Experience' />
+                <ol>
                     {profile.experience.map((job) => (
-                        <div key={`${job.company}-${job.role}`} className='mt-8 first-of-type:mt-0'>
-                            <div className='flex flex-wrap items-baseline justify-between gap-x-4'>
-                                <h3 className='pixel text-4xl'>{job.company}</h3>
-                                <span className='meta'>{job.period}</span>
-                            </div>
-                            <p className='text-muted'>{job.role}</p>
-                            <p className='mt-3 text-sm'>{job.description}</p>
-                            {job.projects.length > 0 && <div className='mt-4 flex flex-wrap gap-2'>
-                                {job.projects.map((slug) => {
-                                    const p = getProject(slug)
-                                    return p && (
-                                        <Link key={slug} href={`/projects/${slug}/`} className='chip-link'>
-                                            {p.name}
-                                        </Link>
-                                    )
-                                })}
-                            </div>}
-                        </div>
-                    ))}
-                </div>
-                <div className='card p-6 sm:p-8'>
-                    <p className='eyebrow mb-4'>Education</p>
-                    <ol className='space-y-6'>
-                        {profile.education.map((e) => (
-                            <li key={e.degree}>
-                                <div className='flex flex-wrap items-baseline justify-between gap-x-4'>
-                                    <h3 className='font-semibold'>{e.degree}</h3>
-                                    <span className='meta'>{e.period}</span>
-                                </div>
-                                <p className='text-sm text-muted'>{e.school}</p>
-                                <p className='mt-1 font-mono text-xs uppercase tracking-wider text-accent'>{e.grade}</p>
-                                {'note' in e && e.note && (
-                                    <a href={e.note.href} target='_blank' rel='noreferrer' className='mt-1 inline-block text-sm text-accent hover:underline'>
-                                        {e.note.label} <ExternalIcon />
-                                    </a>
+                        <li key={`${job.company}-${job.role}`} className='group grid sm:grid-cols-[9rem_1fr]'>
+                            <p className='meta hidden pr-6 pt-2 text-right sm:block'>{job.period}</p>
+                            <div className='timeline-entry group-last:pb-0'>
+                                <p className='meta sm:hidden'>{job.period}</p>
+                                <h3 className='title-card'>{job.company}</h3>
+                                <p className='mt-1 text-muted'>{job.role}</p>
+                                <p className='mt-3 max-w-3xl text-sm leading-relaxed'>{job.description}</p>
+                                {job.projects.length > 0 && (
+                                    <div className='mt-4 flex flex-wrap gap-2'>
+                                        {job.projects.map((slug) => {
+                                            const p = getProject(slug)
+                                            return p && <Link key={slug} href={`/projects/${slug}/`} className='chip-link'>{p.name}</Link>
+                                        })}
+                                    </div>
                                 )}
-                            </li>
-                        ))}
-                    </ol>
-                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ol>
+
+                <h3 className='title-card mt-16 mb-6'>Education</h3>
+                <ol className='grid gap-6 sm:grid-cols-2'>
+                    {profile.education.map((e) => (
+                        <li key={e.degree} className='card p-6'>
+                            <p className='meta'>{e.period}</p>
+                            <h4 className='mt-2 font-semibold'>{e.degree}</h4>
+                            <p className='text-sm text-muted'>{e.school}</p>
+                            <p className='mt-3 label text-accent'>{e.grade}</p>
+                            {'note' in e && e.note && (
+                                <a href={e.note.href} target='_blank' rel='noreferrer' className='mt-2 inline-block text-sm text-accent hover:underline'>
+                                    {e.note.label} <ExternalIcon />
+                                </a>
+                            )}
+                        </li>
+                    ))}
+                </ol>
             </section>
 
             {/* Core stack */}
-            <section className='container-page py-12'>
+            <section className='section'>
                 <SectionHeading
                     eyebrow='Tech stack'
                     title='Tools I use every day'
@@ -152,7 +149,7 @@ export default function Home() {
             </section>
 
             {/* Library preview */}
-            <section className='container-page py-12'>
+            <section className='section'>
                 <SectionHeading
                     eyebrow='Personal library'
                     title='Books that shaped how I build'
@@ -168,7 +165,7 @@ export default function Home() {
             </section>
 
             {/* CTA */}
-            <section className='container-page pt-12'>
+            <section className='container-page pt-12 sm:pt-16'>
                 <div className='card flex flex-col items-start gap-6 border-accent p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10'>
                     <div>
                         <h2 className='pixel text-4xl'>Let’s build something reliable.</h2>
