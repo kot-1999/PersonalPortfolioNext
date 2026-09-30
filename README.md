@@ -149,21 +149,41 @@ slug (`lib/validate-content.ts`, run from `app/layout.tsx`).
 The theme is **dark retro**: warm near-black background, cream text, amber / teal / coral accents, hard offset
 shadows, square corners and faint static CRT scanlines. The site is intentionally dark-only.
 
-- **Tokens:** the colours are CSS variables at the top of `app/globals.css`, exposed to Tailwind as `bg`, `surface`,
-  `surface-2`, `border`, `text`, `muted`, `accent`, `teal`, `coral`, `plate`. Components only use these names.
-  Tailwind radius tokens are also overridden there to keep corners square.
-- **Utilities** (also in `globals.css`):
+Styles are centralised with Tailwind v4's CSS-first setup. `app/globals.css` only imports three files from
+`app/styles/`:
 
-  | Utility | Use |
-  |---------|-----|
-  | `container-page` | Page-width container |
-  | `card`, `card-hover` | Bordered panel with hard shadow; lift on hover |
-  | `btn-primary`, `btn-ghost` | Buttons with press effect |
-  | `chip` | Small mono tag |
-  | `eyebrow` | `> SECTION LABEL` above headings |
-  | `pixel` | Pixel display font, used for headings |
-  | `cursor` | Appends a blinking `_` |
-  | `retro-shadow` | 4px offset black shadow |
+| File | What it holds |
+|------|---------------|
+| `tokens.css` | Colours, fonts and radii (`:root` variables exposed via `@theme`). Edit these to re-theme the site |
+| `base.css` | Page background, CRT scanlines, selection, focus ring, reduced motion, keyframes |
+| `components.css` | The design system: reusable classes defined with `@utility` |
+
+**Rule of thumb:** design decisions (type scale, colours, borders, shadows, spacing rhythm) belong in
+`components.css`; layout (flex, grid, gap, one-off margins) stays inline in the markup. If you copy the same
+class string a third time, it probably wants to be a utility.
+
+Components use semantic colour names only: `bg`, `surface`, `surface-2`, `border`, `text`, `muted`, `accent`,
+`teal`, `coral`, `plate`.
+
+| Utility | Use |
+|---------|-----|
+| `container-page` | Page-width container |
+| `section` | Home page section: page width plus the shared vertical spacing |
+| `title-page`, `title-section`, `title-card`, `title-sm` | Pixel-font headings: page h1, section h2, card/block title, popover title |
+| `eyebrow` | `> SECTION LABEL` above headings |
+| `label` | Small uppercase mono label for metadata; add a `text-*` colour |
+| `meta` | Dates and periods (mono, teal) |
+| `pixel` | Pixel font for one-off sizes (hero name, stats) |
+| `cursor` | Appends a blinking `_` |
+| `card`, `card-hover` | Bordered panel with hard shadow; lift on hover |
+| `chip`, `chip-link` | Small mono tag; clickable variant |
+| `btn-primary`, `btn-ghost` | Buttons with press effect |
+| `field` | Text inputs and textareas (set padding at the call site) |
+| `timeline-entry` | Timeline item with a rail and square node (Experience) |
+| `retro-shadow`, `prose-body` | 4px offset shadow; paragraph spacing in long text |
+
+`card`, `btn-primary` and `btn-ghost` double as platforms for the slimes (`PLATFORM_SELECTOR` in
+`components/Slimes.tsx`), so update that selector if you rename them.
 
 - **Fonts:** Geist (body), Geist Mono (labels, chips) and VT323 (pixel headings). All are bundled as woff2 in
   `app/fonts/`, so the build needs no network access.
