@@ -1,0 +1,58 @@
+# Builds the static site and deploys it to GitHub Pages on every push to main (or manually from the Actions tab).
+#
+# One-time setup: repo Settings → Pages → Build and deployment → Source: "GitHub Actions".
+# The site is served at https://<user>.github.io/<repo>/, so the base path is taken from the repo name.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Minimum permissions for Pages deployments
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; a newer push waits instead of cancelling a deploy halfway
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/configure-pages@v6
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      # Static export to ./out. The build also fails if content points at a missing image.
+      - run: npm run build
+        env:
+          # Remove this for a custom domain or a <user>.github.io repo (served from the root)
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
