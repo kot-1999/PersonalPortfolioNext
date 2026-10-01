@@ -10,6 +10,8 @@ export const profile = {
     email: 'sashakashytskyy@gmail.com',
     /** Formspree endpoint used by the contact form */
     formspreeAction: 'https://formspree.io/f/mlggekeq',
+    /** Google Calendar appointment page behind the "Book a call" buttons */
+    bookingUrl: 'https://calendar.app.google/Yg9HMPFqktqosbRL7',
 
     headline: 'I build scalable, well-tested backend systems.',
     about: [

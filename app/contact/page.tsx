@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import BookCallButton from '@/components/BookCallButton'
 import ContactForm from '@/components/ContactForm'
 import PageHeader from '@/components/PageHeader'
 import { profile } from '@/content/profile'
@@ -13,13 +14,18 @@ export default function ContactPage() {
             <PageHeader
                 eyebrow='Contact'
                 title='Get in touch'
-                description='Questions, opportunities, or just want to say hi — send me a message and I’ll reply by email.'
+                description='Questions, opportunities, or just want to say hi — send me a message and I’ll reply by email, or book a call.'
             />
             <div className='grid gap-10 lg:grid-cols-3'>
                 <div className='lg:col-span-2'>
                     <ContactForm action={profile.formspreeAction} />
                 </div>
                 <aside className='space-y-6'>
+                    <div>
+                        <h2 className='label text-muted'>Prefer to talk?</h2>
+                        <p className='mt-1 text-sm text-muted'>Pick a time that suits you on my calendar.</p>
+                        <BookCallButton className='mt-3' />
+                    </div>
                     <div>
                         <h2 className='label text-muted'>Email</h2>
                         <a href={`mailto:${profile.email}`} className='mt-1 block break-all text-accent hover:underline'>

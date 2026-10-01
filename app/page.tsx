@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import BookCallButton from '@/components/BookCallButton'
 import BookCover from '@/components/BookCover'
 import Terminal from '@/components/Terminal'
 import ExternalIcon from '@/components/ExternalIcon'
@@ -32,6 +33,7 @@ export default function Home() {
 
                         <div className='mt-10 flex flex-wrap gap-4'>
                             <Link href='/projects/' className='btn-primary'>View projects</Link>
+                            <BookCallButton variant='ghost' />
                             <Link href='/contact/' className='btn-ghost'>Get in touch</Link>
                         </div>
                     </div>
@@ -197,9 +199,12 @@ export default function Home() {
                 <div className='card flex flex-col items-start gap-6 border-accent p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10'>
                     <div>
                         <h2 className='pixel text-4xl'>Let’s build something reliable.</h2>
-                        <p className='mt-2 text-muted'>Have a project or a role in mind? I’d love to hear about it.</p>
+                        <p className='mt-2 text-muted'>Have a project or a role in mind? Book a call or send me a message.</p>
                     </div>
-                    <Link href='/contact/' className='btn-primary'>Contact me</Link>
+                    <div className='flex shrink-0 flex-wrap gap-4'>
+                        <BookCallButton />
+                        <Link href='/contact/' className='btn-ghost'>Contact me</Link>
+                    </div>
                 </div>
             </section>
         </>
