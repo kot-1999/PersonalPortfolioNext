@@ -93,7 +93,7 @@ public/
 
 | File | What it holds |
 |------|---------------|
-| `content/profile.ts` | Name, role, about text, stats, experience, education, socials, navigation, contact form endpoint |
+| `content/profile.ts` | Name, role, about text, stats, experience, education, socials, navigation, contact form endpoint, booking link (`bookingUrl`, behind the "Book a call" buttons) |
 | `content/projects.ts` | Projects. Order in the file is the order on the site |
 | `content/tech.ts` | Every technology. Entries with `proficiency` appear on the Skills page |
 | `content/books.ts` | Personal library |
